@@ -2,7 +2,6 @@
 const http = require('http');
 const jade = require('jade');
 const server = http.createServer((req, res) => {
-  const now = new Date();
   console.info('Requested by ' + req.connection.remoteAddress);
   res.writeHead(200, {
     'Content-Type': 'text/html',
