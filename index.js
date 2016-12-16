@@ -34,7 +34,7 @@ const server = http.createServer((req, res) => {
     case 'POST':
       req.on('data', (data) => {
         const decoded = decodeURIComponent(data);
-        console.info('[' + now + '] 投稿: ' + decoded);
+        console.info('投稿: ' + decoded);
         res.write('<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"></head><body><h1>' +
           decoded + 'が投稿されました</h1></body></html>');
         res.end();
