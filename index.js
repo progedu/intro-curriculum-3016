@@ -2,8 +2,7 @@
 const http = require('http');
 const jade = require('jade');
 const server = http.createServer((req, res) => {
-  const now = new Date();
-  console.info('[' + now + '] Requested by ' + req.connection.remoteAddress);
+  console.info(' Requested by ' + req.connection.remoteAddress);
   res.writeHead(200, {
     'Content-Type': 'text/html; charset=utf-8'
   });
@@ -28,13 +27,19 @@ const server = http.createServer((req, res) => {
           firstItem: '寿司',
           secondItem: 'ピザ'
         }));
+      } else if (req.url === '/enquetes/udon-soba') {
+        res.write(jade.renderFile('./form.jade', {
+          path: req.url,
+          firstItem: 'うどん',
+          secondItem: '蕎麦'
+        }));
       }
       res.end();
       break;
     case 'POST':
       req.on('data', (data) => {
         const decoded = decodeURIComponent(data);
-        console.info('[' + now + '] 投稿: ' + decoded);
+        console.info('投稿: ' + decoded);
         res.write('<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"></head><body><h1>' +
           decoded + 'が投稿されました</h1></body></html>');
         res.end();
