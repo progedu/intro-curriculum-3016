@@ -28,6 +28,12 @@ const server = http.createServer((req, res) => {
           firstItem: '寿司',
           secondItem: 'ピザ'
         }));
+      } else if (req.url === '/enquetes/sakata-setuda') {
+        res.write(jade.renderFile('./form.jade', {
+          path: req.url,
+          firstItem: '坂田アキラ',
+          secondItem: '節田せつお'
+        }));
       }
       res.end();
       break;
