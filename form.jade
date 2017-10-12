@@ -1,15 +1,105 @@
 doctype html
-html(lang="jp")
+html(lang="ja")
   head
     meta(charset="UTF-8")
     title アンケート
   body
-    h1 どちらが食べたいですか？
-    form(method="post", action="#{path}")
-      span 名前: 
-      input(type="text", name="name")
-      input(type="radio", name="favorite", value="#{firstItem}")
-      span #{firstItem} 
-      input(type="radio", name="favorite", value="#{secondItem}")
-      span #{secondItem} 
-      button(type="submit") 投稿
+    if path === '/enquetes/yaki-shabu' || path === '/enquetes/rice-bread' || path === '/enquetes/sushi-pizza'
+      h1 アンケート
+      form(method="post", action="#{path}")
+        h3 どちらが食べたいですか？
+        label 
+          input(type="radio", name="favorite", value="#{firstItem}" required)
+          span #{firstItem}
+        label
+          input(type="radio", name="favorite", value="#{secondItem}")
+          span #{secondItem}
+
+        h3 お飲み物はいかがなさいますか？
+        select(name="drink", id="select")
+          option(value="" selected) 選択してください
+          option(value="ドリップコーヒー") ドリップコーヒー
+          option(value="カフェミスト") カフェミスト
+          option(value="ソイラテ") ソイラテ
+          option(value="カプチーノ") カプチーノ
+          option(value="キャラメルマキアート") キャラメルマキアート
+          option(value="エスプレッソ") エスプレッソ
+          option(value="ココア") ココア
+          option(value="キャラメルフラペチーノ") キャラメルフラペチーノ
+          option(value="アイスコーヒー") アイスコーヒー
+          option(value="アイスティー") アイスティー
+          option(value="ほうじ茶") ほうじ茶
+
+        h3
+          | ご一緒にデザートはいかがですか？
+          small (複数回答可)
+          
+        label 
+          input(type="checkbox", name="desserts", value="巨峰のザ・サンデー")
+          span 巨峰のザ・サンデー
+          br
+        label
+          input(type="checkbox", name="desserts", value="キャラメルハニーパンケーキ")
+          span キャラメルハニーパンケーキ
+          br
+        label
+          input(type="checkbox", name="desserts", value="抹茶クリームあんみつ")
+          span 抹茶クリームあんみつ
+          br
+        label
+          input(type="checkbox", name="desserts", value="抹茶白玉あずき")
+          span 抹茶白玉あずき
+          br
+        label
+          input(type="checkbox", name="desserts", value="ガトーショコラブラウニー")
+          span ガトーショコラブラウニー
+          br
+        label
+          input(type="checkbox", name="desserts", value="ベイクドチーズケーキ")
+          span ベイクドチーズケーキ
+          br
+        label
+          input(type="checkbox", name="desserts", value="フォンダン・ショコラ")
+          span フォンダン・ショコラ
+          br
+        label
+          input(type="checkbox", name="desserts", value="チョコとバナナのマスカルポーネのパンケーキ")
+          span チョコとバナナのマスカルポーネのパンケーキ
+          br
+        label 
+          input(type="checkbox", name="desserts", value="フレンチトースト")
+          span フレンチトースト
+          br
+        label
+          input(type="checkbox", name="desserts", value="濃厚ベルギーチョコムース＆ブラウニー")
+          span 濃厚ベルギーチョコムース＆ブラウニー
+          br
+        label
+          input(type="checkbox", name="desserts", value="苺とベリーのリコッタパンケーキ")
+          span 苺とベリーのリコッタパンケーキ
+          br
+        label
+          input(type="checkbox", name="desserts", value="冷やし抹茶ぜんざい")
+          span 冷やし抹茶ぜんざい
+          br
+        label
+          input(type="checkbox", name="desserts", value="イタリア栗のモンブラン")
+          span イタリア栗のモンブラン
+          br
+        label
+          input(type="checkbox", name="desserts", value="リンゴとチョコブラウニーのクレープ")
+          span リンゴとチョコブラウニーのクレープ
+          br
+
+        h3 名前を入力してください
+        input(type="text", name="name" required)
+
+        p
+          button(type="submit") 投稿
+
+    else 
+      h1 お探しのページは見つかりません。
+      ul
+        li: a(href="/enquetes/yaki-shabu") 焼き肉 or しゃぶしゃぶ
+        li: a(href="/enquetes/rice-bread") ごはん or パン
+        li: a(href="/enquetes/sushi-pizza") 寿司 or ピザ

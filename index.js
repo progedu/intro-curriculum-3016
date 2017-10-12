@@ -3,7 +3,7 @@ const http = require('http');
 const jade = require('jade');
 const server = http.createServer((req, res) => {
   const now = new Date();
-  console.info('[' + now + '] Requested by ' + req.connection.remoteAddress);
+  console.info('Requested by ' + req.connection.remoteAddress);
   res.writeHead(200, {
     'Content-Type': 'text/html; charset=utf-8'
   });
@@ -28,6 +28,8 @@ const server = http.createServer((req, res) => {
           firstItem: '寿司',
           secondItem: 'ピザ'
         }));
+      } else {
+        res.write(jade.renderFile('./form.jade', {}));
       }
       res.end();
       break;
@@ -38,9 +40,33 @@ const server = http.createServer((req, res) => {
       }).on('end', () => {
         body = Buffer.concat(body).toString();
         const decoded = decodeURIComponent(body);
-        console.info('[' + now + '] 投稿: ' + decoded);
-        res.write('<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"></head><body><h1>' +
-          decoded + 'が投稿されました</h1></body></html>');
+        const postArray = decoded.split('&');
+        // postArrayの要素をname別の配列にする
+        const favorite = [];
+        const drink = [];
+        const desserts = [];
+        const name = [];
+        postArray.forEach((val) => {
+          if (val.indexOf('favorite') >= 0) {
+            favorite.push(val.split('=')[1]);
+          }
+          if (val.indexOf('drink') >= 0) {
+            drink.push(val.split('=')[1]);
+          }
+          if (val.indexOf('desserts') >= 0) {
+            desserts.push(val.split('=')[1]);
+          }
+          if (val.indexOf('name') >= 0) {
+            name.push(val.split('=')[1]);
+          }
+        });
+        console.info('投稿: ' + decoded);
+        res.write(jade.renderFile('./postResult.jade', {
+          favorite: favorite,
+          drink: drink,
+          desserts: desserts,
+          name: name
+        }));
         res.end();
       });
       break;
@@ -49,11 +75,11 @@ const server = http.createServer((req, res) => {
   }
 
 }).on('error', (e) => {
-  console.error('[' + new Date() + '] Server Error', e);
+  console.error('Server Error', e);
 }).on('clientError', (e) => {
-  console.error('[' + new Date() + '] Client Error', e);
+  console.error('Client Error', e);
 });
 const port = process.env.PORT || 8000;
 server.listen(port, () => {
-  console.info('[' + new Date() + '] Listening on ' + port);
+  console.info('Listening on ' + port);
 });
