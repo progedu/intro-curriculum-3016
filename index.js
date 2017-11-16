@@ -44,7 +44,7 @@ const server = http.createServer((req, res) => {
       });
       break;
     default:
-      break;
+      break; 
   }
 
 }).on('error', (e) => {
