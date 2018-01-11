@@ -37,7 +37,7 @@ const server = http.createServer((req, res) => {
         const decoded = decodeURIComponent(data);
         console.info('投稿: ' + decoded);
         res.write('<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"></head><body><h1>' +
-          decoded + 'が投稿されました</h1></body></html>');
+          decoded + 'が食べたいようです</h1></body></html>');
         res.end();
       });
     break;
