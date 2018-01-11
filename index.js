@@ -9,11 +9,11 @@ const server = http.createServer((req, res) => {
 
   switch (req.method) {
     case 'GET':
-      if (req.url === '/enquetes/yaki-shabu') {
+      if (req.url === '/enquetes/omu-han') {
         res.write(jade.renderFile('./form.jade', {
           path: req.url,
-          firstItem: '焼き肉',
-          secondItem: 'しゃぶしゃぶ'
+          firstItem: 'オムライス',
+          secondItem: 'ハンバーグ'
         }));
       } else if (req.url === '/enquetes/rice-bread') {
         res.write(jade.renderFile('./form.jade', {
@@ -27,6 +27,8 @@ const server = http.createServer((req, res) => {
           firstItem: '寿司',
           secondItem: 'ピザ'
         }));
+      } else if (req.url === '/') {
+        res.write('<!DOCTYPE html><html lang="ja"><body><h1><a href="/enquetes/omu-han">オムライスorハンバーグ</a><br><a href="/enquetes/rice-bread">ごはんorパン</a><br><a href="/enquetes/sushi-pizza">寿司orピザ</a><br></h1></body></html>')
       }
       res.end();
       break;
