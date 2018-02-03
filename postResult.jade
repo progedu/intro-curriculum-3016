@@ -1,0 +1,21 @@
+doctype html
+html(lang="ja")
+  head
+    meta(charset="UTF-8")
+    title アンケート結果
+  body
+    h1 アンケート結果
+    h3 お名前
+    p #{name[0]}
+    
+    h3 選んだ料理
+    p #{favorite[0]}
+
+    if !(drink[0] === "")
+      h3 飲み物
+      p #{drink[0]}
+
+    if !(desserts.length === 0)
+      h3 デザート
+      each dessert in desserts
+        p #{dessert}
