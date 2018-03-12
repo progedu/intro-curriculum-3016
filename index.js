@@ -6,7 +6,6 @@ const server = http.createServer((req, res) => {
   res.writeHead(200, {
     'Content-Type': 'text/html; charset=utf-8'
   });
-
   switch (req.method) {
     case 'GET':
       if (req.url === '/enquetes/yaki-shabu') {
