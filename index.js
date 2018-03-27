@@ -31,20 +31,16 @@ const server = http.createServer((req, res) => {
       res.end();
       break;
     case 'POST':
-      let body = [];
-      req.on('data', (chunk) => {
-        body.push(chunk);
-      }).on('end', () => {
-        body = Buffer.concat(body).toString();
-        const decoded = decodeURIComponent(body);
+      req.on('data', (data) => {
+        const decoded = decodeURIComponent(data);
         console.info('投稿: ' + decoded);
         res.write('<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"></head><body><h1>' +
           decoded + 'が投稿されました</h1></body></html>');
         res.end();
       });
-      break;
-    default:
-      break;
+    break;
+  default:
+    break;
   }
 
 }).on('error', (e) => {
