@@ -51,11 +51,13 @@ const server = http.createServer((req, res) => {
     }
 
 }).on('error', (e) => {
+    //console.error('[' + new Date() + '] Server Error', e);
     console.error('[' + new Date() + '] Server Error', e);
 }).on('clientError', (e) => {
-    console.error('[' + new Date() + '] Client Error', e);
+    console.error(' Client Error', e);
 });
 const port = process.env.PORT || 8000;
 server.listen(port, () => {
-    console.info('[' + new Date() + '] Listening on ' + port);
+    //console.info('[' + new Date() + '] Listening on ' + port);
+    console.info(' Listening on ' + port);
 });
