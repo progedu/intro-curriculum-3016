@@ -1,0 +1,8 @@
+{
+	"name": "Enquetes",
+	"description": "Enquetes for Favorite foods.",
+	"reporisoty": "https://github.com/imadedede/intro-curriculum-3016",
+	"logo": "",
+	"keywords": ["node"],
+	"image": "heroku/nodejs"
+}
