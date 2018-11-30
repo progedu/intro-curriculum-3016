@@ -31,12 +31,8 @@ const server = http.createServer((req, res) => {
       res.end();
       break;
     case 'POST':
-      let body = [];
-      req.on('data', (chunk) => {
-        body.push(chunk);
-      }).on('end', () => {
-        body = Buffer.concat(body).toString();
-        const decoded = decodeURIComponent(body);
+      req.on('data', (data) => {
+        const decoded = decodeURIComponent(data);
         console.info('投稿: ' + decoded);
         res.write('<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"></head><body><h1>' +
           decoded + 'が投稿されました</h1></body></html>');
@@ -48,11 +44,11 @@ const server = http.createServer((req, res) => {
   }
 
 }).on('error', (e) => {
-  console.error('[' + new Date() + '] Server Error', e);
+  console.error('Server Error', e);
 }).on('clientError', (e) => {
-  console.error('[' + new Date() + '] Client Error', e);
+  console.error('Client Error', e);
 });
 const port = process.env.PORT || 8000;
 server.listen(port, () => {
-  console.info('[' + new Date() + '] Listening on ' + port);
+  console.info('Listening on ' + port);
 });
