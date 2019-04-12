@@ -1,4 +1,23 @@
 {
+<<<<<<< HEAD
+  "name": "node-js-http",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jade": "^1.11.0",
+    "pug": "^2.0.0-rc.4"
+  },
+  "engines": {
+    "node": "8.9.4"
+  }
+}
+=======
     "name": "node-js-http",
     "version": "1.0.0",
     "description": "",
@@ -15,3 +34,4 @@
         "node": "8.9.4"
     }
 }
+>>>>>>> dac7dafb078f6d9a97a9f57954ddf7f67faa5a0e
