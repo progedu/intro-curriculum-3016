@@ -1,0 +1,32 @@
+2019-08-23T08:55:05.072809+00:00 app[api]: Release v1 created by user kmwt810@gmail.com
+2019-08-23T08:55:05.072809+00:00 app[api]: Initial release by user kmwt810@gmail.com
+2019-08-23T08:55:05.240694+00:00 app[api]: Release v2 created by user kmwt810@gmail.com
+2019-08-23T08:55:05.240694+00:00 app[api]: Enable Logplex by user kmwt810@gmail.com
+2019-08-23T08:55:55.000000+00:00 app[api]: Build started by user kmwt810@gmail.com
+2019-08-23T08:56:03.157922+00:00 heroku[router]: at=info code=H81 desc="Blank app" method=GET path="/" host=vast-scrubland-10428.herokuapp.com request_id=fc24095b-996c-4d48-ae4e-8267c867d6bc fwd="116.70.139.106" dyno= connect= service= status=502 bytes= protocol=https
+2019-08-23T08:56:03.392308+00:00 heroku[router]: at=info code=H81 desc="Blank app" method=GET path="/favicon.ico" host=vast-scrubland-10428.herokuapp.com request_id=55b5aefd-d890-44a2-b26c-f0e2b23c5654 fwd="116.70.139.106" dyno= connect= service= status=502 bytes= protocol=https
+2019-08-23T08:56:10.158853+00:00 app[api]: Release v3 created by user kmwt810@gmail.com
+2019-08-23T08:56:10.210526+00:00 app[api]: Scaled to web@1:Free by user kmwt810@gmail.com
+2019-08-23T08:56:10.158853+00:00 app[api]: Deploy c1a70d6b by user kmwt810@gmail.com
+2019-08-23T08:56:11.000000+00:00 app[api]: Build succeeded
+2019-08-23T08:56:13.729322+00:00 heroku[web.1]: Starting process with command `node index.js`
+2019-08-23T08:56:17.053831+00:00 heroku[web.1]: State changed from starting to up
+2019-08-23T08:56:16.981513+00:00 app[web.1]: [Fri Aug 23 2019 08:56:16 GMT+0000 (Coordinated Universal Time)] Listening on 7866
+2019-08-23T08:56:18.543970+00:00 heroku[router]: at=info method=GET path="/enquetes/yaki-shabu" host=vast-scrubland-10428.herokuapp.com request_id=32f5a94f-20a0-41ea-9e5c-5967e598eef3 fwd="116.70.139.106" dyno=web.1 connect=1ms service=139ms status=200 bytes=634 protocol=https
+2019-08-23T08:56:18.410988+00:00 app[web.1]: [Fri Aug 23 2019 08:56:18 GMT+0000 (Coordinated Universal Time)] Requested by ::ffff:10.29.84.90
+2019-08-23T08:56:18.765851+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=vast-scrubland-10428.herokuapp.com request_id=210a8b85-932d-499f-8d08-b904768710db fwd="116.70.139.106" dyno=web.1 connect=1ms service=12ms status=200 bytes=148 protocol=https
+2019-08-23T08:56:18.757767+00:00 app[web.1]: [Fri Aug 23 2019 08:56:18 GMT+0000 (Coordinated Universal Time)] Requested by ::ffff:10.29.84.90
+2019-08-23T08:58:58.494571+00:00 heroku[router]: at=info method=POST path="/enquetes/yaki-shabu" host=vast-scrubland-10428.herokuapp.com request_id=30863a2e-9832-48ff-86bf-fff0352b210b fwd="116.70.139.106" dyno=web.1 connect=0ms service=3ms status=200 bytes=301 protocol=https
+2019-08-23T08:58:58.491224+00:00 app[web.1]: [Fri Aug 23 2019 08:58:58 GMT+0000 (Coordinated Universal Time)] Requested by ::ffff:10.35.250.14
+2019-08-23T08:58:58.492668+00:00 app[web.1]: [Fri Aug 23 2019 08:58:58 GMT+0000 (Coordinated Universal Time)] 投稿: name=test&favorite=焼き肉
+2019-08-23T08:58:58.712487+00:00 app[web.1]: [Fri Aug 23 2019 08:58:58 GMT+0000 (Coordinated Universal Time)] Requested by ::ffff:10.35.250.14
+2019-08-23T08:58:58.714214+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=vast-scrubland-10428.herokuapp.com request_id=e0489a95-121d-4fcb-ac09-22ca0ff78cdd fwd="116.70.139.106" dyno=web.1 connect=0ms service=3ms status=200 bytes=148 protocol=https
+2019-08-23T09:00:13.793644+00:00 heroku[router]: at=info method=GET path="/enquetes/yaki-shabu" host=vast-scrubland-10428.herokuapp.com request_id=58ae6e1e-f73f-489b-86ef-2cf1072aec13 fwd="116.70.139.106" dyno=web.1 connect=1ms service=94ms status=200 bytes=634 protocol=https
+2019-08-23T09:00:13.702530+00:00 app[web.1]: [Fri Aug 23 2019 09:00:13 GMT+0000 (Coordinated Universal Time)] Requested by ::ffff:10.7.171.166
+2019-08-23T09:00:13.999564+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=vast-scrubland-10428.herokuapp.com request_id=0157b9a2-0a7e-4a5e-bc5e-9c884ae1a67a fwd="116.70.139.106" dyno=web.1 connect=0ms service=2ms status=200 bytes=148 protocol=https
+2019-08-23T09:00:13.996379+00:00 app[web.1]: [Fri Aug 23 2019 09:00:13 GMT+0000 (Coordinated Universal Time)] Requested by ::ffff:10.7.171.166
+2019-08-23T09:00:20.768425+00:00 heroku[router]: at=info method=POST path="/enquetes/yaki-shabu" host=vast-scrubland-10428.herokuapp.com request_id=aa1b39d7-2c60-4ac7-9165-690994bd1bef fwd="116.70.139.106" dyno=web.1 connect=0ms service=9ms status=200 bytes=310 protocol=https
+2019-08-23T09:00:20.968622+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=vast-scrubland-10428.herokuapp.com request_id=5395e83b-7840-44eb-a550-f54b729c13bb fwd="116.70.139.106" dyno=web.1 connect=1ms service=2ms status=200 bytes=148 protocol=https
+2019-08-23T09:00:20.760578+00:00 app[web.1]: [Fri Aug 23 2019 09:00:20 GMT+0000 (Coordinated Universal Time)] Requested by ::ffff:10.7.171.166
+2019-08-23T09:00:20.765848+00:00 app[web.1]: [Fri Aug 23 2019 09:00:20 GMT+0000 (Coordinated Universal Time)] 投稿: name=shab&favorite=しゃぶしゃぶ
+2019-08-23T09:00:20.966189+00:00 app[web.1]: [Fri Aug 23 2019 09:00:20 GMT+0000 (Coordinated Universal Time)] Requested by ::ffff:10.7.171.166
