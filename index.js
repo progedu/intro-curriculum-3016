@@ -46,10 +46,10 @@ const server = http.createServer((req, res) => {
       break;
   }
 }).on('error', (e) => {
-  console.error('[' + new Date() + '] Server Error', e);
+  console.error('Server Error', e);
 }).on('clientError', (e) => {
-  console.error('[' + new Date() + '] Client Error', e);
+  console.error('Client Error', e);
 });
 server.listen(process.env.PORT, process.env.IP, () => {
-  console.info('[' + new Date() + '] Listening on ' + process.env.PORT);
+  console.info(`Listening on ${process.env.PORT}`);
 });
