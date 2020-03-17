@@ -42,6 +42,7 @@ const server = http.createServer((req, res) => {
           decoded + 'が投稿されました</h1></body></html>');
         res.end();
       });
+      
       break;
     default:
       break;
