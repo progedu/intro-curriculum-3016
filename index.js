@@ -1,7 +1,7 @@
 'use strict';
 const http = require('http');
 const pug = require('pug');
-  console.info('[' + now + '] Requested by ' + req.connection.remoteAddress);
+const server = http.createServer((req, res) => {
   res.writeHead(200, {
     'Content-Type': 'text/html; charset=utf-8'
   });
