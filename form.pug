@@ -4,12 +4,19 @@ html(lang="jp")
     meta(charset="UTF-8")
     title アンケート
   body
-    h1 どちらが食べたいですか？
+    h1 あなたはどっち派？
+    p #{theme} といったら…
     form(method="post", action=path)
-      span 名前: 
-      input(type="text", name="name")
-      input(type="radio", name="favorite", value=firstItem)
-      span #{firstItem} 
-      input(type="radio", name="favorite", value=secondItem)
-      span #{secondItem} 
+      div
+        label
+          span 名前: 
+          input(type="text", name="name")
+      div
+        label
+          input(type="radio", name="favorite", value=firstItem)
+          span #{firstItem} 
+      div
+        label
+          input(type="radio", name="favorite", value=secondItem)
+          span #{secondItem} 
       button(type="submit") 投稿
