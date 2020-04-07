@@ -1,2 +1,0 @@
-https://infinite-sea-95440.herokuapp.com/
-https://git.heroku.com/infinite-sea-95440.git
