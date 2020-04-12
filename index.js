@@ -1,6 +1,6 @@
 'use strict';
 const http = require('http');
-const jade = require('jade');
+const pug = require('pug');
 const server = http.createServer((req, res) => {
   console.info('Requested by ' + req.connection.remoteAddress);
   res.writeHead(200, {
