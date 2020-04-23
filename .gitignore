@@ -1,2 +1,4 @@
 node_modules
-*.log
+*.lognode_modules
+yarn.lock
+memo.txt
