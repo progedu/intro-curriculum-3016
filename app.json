@@ -1,0 +1,8 @@
+{
+  "name": "Enquetess",
+  "description": "Enquetess for favorite foods",
+  "repository": "https://github.com/Suzuki826/intro-curriculum-3016",
+  "logo": "",
+  "keywords": ["node"],
+  "image": "heroku/node.js"
+}
