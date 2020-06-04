@@ -35,10 +35,12 @@ const server = http.createServer((req, res) => {
       req.on('data', (chunk) => {
         rawData = rawData + chunk;
       }).on('end', () => {
+        const qs = require('querystring');
         const decoded = decodeURIComponent(rawData);
-        console.info('投稿: ' + decoded);
+        const answer = qs.parse(decoded)
+        console.info('投稿: ' + answer['name'] +'さんは' + answer['favorite']);
         res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
-          decoded + 'が投稿されました</h1></body></html>');
+          answer['name'] + 'さんは' + answer['favorite'] + 'に投票しました</h1></body></html>');
         res.end();
       });
       break;
