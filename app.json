@@ -1,0 +1,8 @@
+{
+  "name": "Enquetes",
+  "description": "Enquetes for favrorite foods.",
+  "repository": "https://github.com/sugar-rookie/intro-curriculum-3016.git",
+  "logo": "",
+  "keywords": ["node"],
+  "image": "heroku/nodejs"
+}
