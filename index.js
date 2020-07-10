@@ -3,10 +3,9 @@ const http = require('http');
 const pug = require('pug');
 const server = http
   .createServer((req, res) => {
-    const now = new Date();
-    console.info('[' + now + '] Requested by ' + req.connection.remoteAddress);
+    console.info('Requested by ' + req.connection.remoteAddress);
     res.writeHead(200, {
-      'Content-Type': 'text/html; charset=utf-8'
+      'Content-Type': 'text/html; charset=utf-8',
     });
 
     switch (req.method) {
@@ -16,7 +15,7 @@ const server = http
             pug.renderFile('./form.pug', {
               path: req.url,
               firstItem: '焼き肉',
-              secondItem: 'しゃぶしゃぶ'
+              secondItem: 'しゃぶしゃぶ',
             })
           );
         } else if (req.url === '/enquetes/rice-bread') {
@@ -24,32 +23,38 @@ const server = http
             pug.renderFile('./form.pug', {
               path: req.url,
               firstItem: 'ごはん',
-              secondItem: 'パン'
+              secondItem: 'パン',
             })
           );
         } else if (req.url === '/enquetes/sushi-pizza') {
-          res.write(pug.renderFile('./form.pug', {
-            path: req.url,
-            firstItem: '寿司',
-            secondItem: 'ピザ'
-          }));
+          res.write(
+            pug.renderFile('./form.pug', {
+              path: req.url,
+              firstItem: '寿司',
+              secondItem: 'ピザ',
+            })
+          );
         }
         res.end();
         break;
       case 'POST':
         let rawData = '';
         req
-          .on('data', chunk => {
+          .on('data', (chunk) => {
             rawData = rawData + chunk;
           })
           .on('end', () => {
             const qs = require('querystring');
             const decoded = decodeURIComponent(rawData);
-            console.info('[' + now + '] 投稿: ' + decoded);
+            console.info('投稿: ' + decoded);
             const answer = qs.parse(decoded);
-            res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
-              answer['name'] + 'さんは' + answer['favorite'] +
-              'に投票しました</h1></body></html>');
+            res.write(
+              '<!DOCTYPE html><html lang="ja"><body><h1>' +
+                answer['name'] +
+                'さんは' +
+                answer['favorite'] +
+                'に投票しました</h1></body></html>'
+            );
             res.end();
           });
         break;
@@ -57,13 +62,13 @@ const server = http
         break;
     }
   })
-  .on('error', e => {
-    console.error('[' + new Date() + '] Server Error', e);
+  .on('error', (e) => {
+    console.error('Server Error', e);
   })
-  .on('clientError', e => {
-    console.error('[' + new Date() + '] Client Error', e);
+  .on('clientError', (e) => {
+    console.error('Client Error', e);
   });
 const port = process.env.PORT || 8000;
 server.listen(port, () => {
-  console.info('[' + new Date() + '] Listening on ' + port);
+  console.info('Listening on' + port);
 });
