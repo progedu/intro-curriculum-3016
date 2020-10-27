@@ -1,7 +1,7 @@
 {
   "name": "Enquetes",
   "description": "Enquetes for favorite foods.",
-  "repository": "https://github.com/progedu/intro-curriculum-3016",
+  "repository": "https://git.heroku.com/ancient-atoll-76088.git",
   "logo": "",
   "keywords": ["node"],
   "image": "heroku/nodejs"
