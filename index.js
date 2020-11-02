@@ -32,10 +32,12 @@ const server = http
 
     switch (req.method) {
       case 'GET':
+        /*
         let data = getParameter(req);
         res.write(pug.renderFile('./form.pug', data));
+        */
 
-/*         if (req.url === '/enquetes/yaki-shabu') {
+        if (req.url === '/enquetes/yaki-shabu') {
           res.write(
             pug.renderFile('./form.pug', {
               path: req.url,
@@ -57,7 +59,7 @@ const server = http
             firstItem: '寿司',
             secondItem: 'ピザ'
           }));
-        } */
+        }
         res.end();
         break;
       case 'POST':
