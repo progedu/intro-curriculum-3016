@@ -1,17 +1,43 @@
 'use strict';
 const http = require('http');
 const pug = require('pug');
+
+function getParameter(req){
+  let data = {path: req.url};
+  switch(req.url){
+    case '/enquetes/yaki-shabu':
+      data.firstItem = '焼き肉';
+      data.secondItem = 'しゃぶしゃぶ';
+      break;
+    
+    case '/enquetes/rice-bread':
+      data.firstItem = 'ごはん';
+      data.secondItem = 'パン';
+      break; 
+      
+    case '/enquetes/sushi-pizza':
+      data.firstItem = '寿司';
+      data.secondItem = 'ピザ';
+      break;       
+  }
+  return data;
+}
+
 const server = http
   .createServer((req, res) => {
-    const now = new Date();
-    console.info('[' + now + '] Requested by ' + req.connection.remoteAddress);
+    console.info('Requested by ' + req.connection.remoteAddress);
     res.writeHead(200, {
       'Content-Type': 'text/html; charset=utf-8'
     });
 
     switch (req.method) {
       case 'GET':
-        if (req.url === '/enquetes/yaki-shabu') {
+        
+        let data = getParameter(req);
+        res.write(pug.renderFile('./form.pug', data));
+        
+
+/*         if (req.url === '/enquetes/yaki-shabu') {
           res.write(
             pug.renderFile('./form.pug', {
               path: req.url,
@@ -33,7 +59,7 @@ const server = http
             firstItem: '寿司',
             secondItem: 'ピザ'
           }));
-        }
+        } */
         res.end();
         break;
       case 'POST':
@@ -47,7 +73,7 @@ const server = http
             const answer = qs.parse(rawData);
             const body = answer['name'] + 'さんは' +
               answer['favorite'] + 'に投票しました';
-            console.info('[' + now + '] ' + body);
+            console.info(body);
             res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
               body + '</h1></body></html>');
             res.end();
@@ -58,12 +84,12 @@ const server = http
     }
   })
   .on('error', e => {
-    console.error('[' + new Date() + '] Server Error', e);
+    console.error('Server Error', e);
   })
   .on('clientError', e => {
-    console.error('[' + new Date() + '] Client Error', e);
+    console.error('Client Error', e);
   });
 const port = process.env.PORT || 8000;
 server.listen(port, () => {
-  console.info('[' + new Date() + '] Listening on ' + port);
+  console.info('Listening on ' + port);
 });
