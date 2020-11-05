@@ -10,31 +10,73 @@ const server = http
 
     switch (req.method) {
       case 'GET':
-        if (req.url === '/enquetes/yaki-shabu') {
-          res.write(
-            pug.renderFile('./form.pug', {
-              path: req.url,
-              firstItem: '焼き肉',
-              secondItem: 'しゃぶしゃぶ'
-            })
-          );
-        } else if (req.url === '/enquetes/rice-bread') {
-          res.write(
-            pug.renderFile('./form.pug', {
-              path: req.url,
-              firstItem: 'ごはん',
-              secondItem: 'パン'
-            })
-          );
-        } else if (req.url === '/enquetes/sushi-pizza') {
-          res.write(pug.renderFile('./form.pug', {
-            path: req.url,
-            firstItem: '寿司',
-            secondItem: 'ピザ'
-          }));
+        let data = { path: req.url, };
+        switch ((~~(10 * Math.random()))) {
+          case 0:
+            data.thirdItem = false;
+            data.firstItem = '焼き肉';
+            data.secondItem = 'しゃぶしゃぶ';
+            break;
+
+          case 1:
+            data.thirdItem = false;
+            data.firstItem = 'ごはん';
+            data.secondItem = 'パン';
+            break;
+
+          case 2:
+            data.thirdItem = false;
+            data.firstItem = '犬 🐶';
+            data.secondItem = '猫 🐈';
+            break;
+
+          case 3:
+            data.thirdItem = false;
+            data["firstItem"] = 'きのこの山';
+            data["secondItem"] = 'たけのこの里';
+            break;
+
+          case 4:
+            data.thirdItem = false;
+            data["firstItem"] = '山';
+            data["secondItem"] = '海';
+            break;
+
+          case 5:
+            data.thirdItem = false;
+            data["firstItem"] = 'ディズニーランド';
+            data["secondItem"] = 'ディズニーシー';
+            data.thirdItem = 'USJ';
+            break;
+
+          case 6:
+            data.thirdItem = false;
+            data["firstItem"] = 'サザエさん';
+            data["secondItem"] = 'ちびまる子ちゃん';
+            break;
+
+          case 7:
+            data.thirdItem = false;
+            data["firstItem"] = '宇宙の旅';
+            data["secondItem"] = '深海の旅';
+            break;
+
+          case 8:
+            data.thirdItem = false;
+            data["firstItem"] = '赤いきつね';
+            data["secondItem"] = '緑のたぬき';
+            break;
+
+          case 9:
+            data.thirdItem = false;
+            data["firstItem"] = '実写映画';
+            data["secondItem"] = 'アニメ映画';
+            break;
         }
+        res.write(pug.renderFile('./form.pug', data));
         res.end();
         break;
+
       case 'POST':
         let rawData = '';
         req
