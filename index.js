@@ -58,7 +58,7 @@ const server = http
             const answer = qs.parse(rawData);
             const body = answer['name'] + 'さんは' +
               answer['favorite'] + 'に投票しました';
-            console.info('[' + now + '] ' + body);
+            console.info(body);
             res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
               body + '</h1></body></html>');
             res.end();
