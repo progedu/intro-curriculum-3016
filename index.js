@@ -10,15 +10,20 @@ const server = http
 
     switch (req.method) {
       case 'GET':
-        if (req.url === '/enquetes/yaki-shabu') {
-          res.write(
-            pug.renderFile('./form.pug', {
-              path: req.url,
-              firstItem: '焼き肉',
-              secondItem: 'しゃぶしゃぶ'
-            })
-          );
-        } else if (req.url === '/enquetes/rice-bread') {
+        if (req.url === '/') {
+          res.write('<!DOCTYPE html><html lang="ja"><body>' + 
+          '<h1>アンケートフォーム</h1>' + 
+          '<a href="/enquetes">アンケート一覧</a>' + 
+          '</body></html>');
+        } else if (req.url === '/enquetes') {
+          res.write('<!DOCTYPE html><html lang="ja"><body>' + 
+          '<h1>アンケート一覧</h1><ul>' + 
+          '<li><a href="/enquetes/yaki-shabu">焼肉・しゃぶしゃぶ<a/></li>' +
+          '<li><a href="/enquetes/rice-bread">ごはん・パン<a/></li>' +
+          '<li><a href="/enquetes/sushi-pizza">寿司・ピザ<a/></li>' +
+          '<a href="/enquetes">アンケート一覧</a>' + 
+          '</ul></body></html>');
+        } else if(req.url === '/enquetes/yaki-shabu') {
           res.write(
             pug.renderFile('./form.pug', {
               path: req.url,
